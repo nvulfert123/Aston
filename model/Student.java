@@ -1,6 +1,6 @@
 package model;
 
-public class Student {
+public class Student extends BaseClass{
     private String groupNumber; // String
     private double averagePoint; //double
     private int id;
