@@ -9,22 +9,22 @@ import java.io.InputStreamReader;
 
 public class Start  {
     public static void main(String[] args) throws IOException {
-        int numberClass, inputType, numberOfObject;
+        int numberClass, inputType, numberOfObject, numberOfAction;
         BaseClass [] dataArray;
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         numberClass = getClassNumber(reader); // выбор класса 1-Автобус, 2-Пользователь, 3-Студент
         inputType = getInputType(reader); // Выбор способа создания 1-Из файла, 2-Рандом, 3-Вручную
         dataArray = new BaseClass[getNumberOfObject(reader, inputType)]; // создание массива объектов заданного размера
-        System.out.println("проверка что дошли дальше");
-        // Заполнение массива объектов
+        System.out.println("сообщение-проверка 1");
+        // Заполнение массива объектов - готовит Никита
         // тестовое создание массива вручную для дальнейшей работы.
         dataArray = new BaseClass[4];
         dataArray[0] = new Bus.BusBuilder().setModel("модель1").setNumber("X234TE").setMilieage(100).build();
         dataArray[1] = new Bus.BusBuilder().setModel("модель2").setNumber("A123TE").setMilieage(300).build();
         dataArray[2] = new Bus.BusBuilder().setModel("модель4").setNumber("B234TE").setMilieage(500).build();
         dataArray[3] = new Bus.BusBuilder().setModel("модель3").setNumber("A123TE").setMilieage(300).build();
-        System.out.println(dataArray.toString());
-
+        numberOfAction = getNumberOfAction(reader); // 1-Сортировка, 2-Поиск
+        
         // цикл сортировки / поиска
 
     }
@@ -110,5 +110,31 @@ public class Start  {
             }
         }
         return numberOfObject;
+    }
+    private static int getNumberOfAction (BufferedReader reader) throws IOException {
+        boolean flag1 = true;
+        while (flag1) {
+            try {
+                System.out.println("Выберите действие: \n1-Сортировка, 2-Поиск");
+                String input = reader.readLine();
+                int temp = Integer.parseInt(input);
+                switch (temp){
+                    case 1:
+                        System.out.println("Вы выбрали Сортировку");
+                        flag1 = false;
+                        return 1;
+                    case 2:
+                        System.out.println("Вы выбрали Поиск");
+                        flag1 = false;
+                        return 2;
+                    default:
+                        System.out.println("Введите число 1 или 2");
+                }
+            }
+            catch (NumberFormatException e) {
+                System.err.println("Ошибка: не удалось преобразовать введенное значение в число.");
+            }
+        }
+        return 0;
     }
 }

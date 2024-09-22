@@ -10,6 +10,19 @@ public class Bus extends BaseClass{
         this.model = busBuilder.model;
         this.milieage = busBuilder.milieage;
     }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public double getMilieage() {
+        return milieage;
+    }
+
     public static class BusBuilder {
         private String number;
         private String model;

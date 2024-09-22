@@ -4,24 +4,37 @@ public class User extends BaseClass{
     private String name;
     private String password;
     private String email;
-    private User(Builder builder){
+    private User(UserBuilder builder){
         this.name = name;
         this.password = password;
         this.email = email;
     }
-    public static class Builder{
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public static class UserBuilder {
         private String name;
         private String password;
         private String email;
-        public Builder setName(String name){
+        public UserBuilder setName(String name){
             this.name = name;
             return this;
         }
-        public Builder setPasword(String password){
+        public UserBuilder setPasword(String password){
             this.password = password;
             return this;
         }
-        public Builder setEmail(String email){
+        public UserBuilder setEmail(String email){
             this.email = email;
             return this;
         }
