@@ -4,24 +4,37 @@ public class Student extends BaseClass{
     private String groupNumber; // String
     private double averagePoint; //double
     private int id;
-    private Student(Builder builder){
+    private Student(StudentBuilder builder){
         this.groupNumber = groupNumber;
         this.averagePoint = averagePoint;
         this.id = id;
     }
-    public static class Builder{
+
+    public String getGroupNumber() {
+        return groupNumber;
+    }
+
+    public double getAveragePoint() {
+        return averagePoint;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public static class StudentBuilder {
         private String groupNumber;
         private double averagePoint;
         private int id;
-        public Builder setGroupNumber(String groupNumber){
+        public StudentBuilder setGroupNumber(String groupNumber){
             this.groupNumber = groupNumber;
             return this;
         }
-        public Builder setaveragePoint(double averagePoint){
+        public StudentBuilder setaveragePoint(double averagePoint){
             this.averagePoint = averagePoint;
             return this;
         }
-        public Builder setID(int id){
+        public StudentBuilder setID(int id){
             this.id = id;
             return this;
         }
